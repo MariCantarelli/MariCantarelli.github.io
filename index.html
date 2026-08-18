@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog da Marina</title>
+    
+    <!-- Fontes do Google: Playfair para elegância, Inter para leitura clara -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Paleta de Cores Feminina e Minimalista */
+        :root {
+            --bg-color: #fdfbf7; /* Off-white quente e acolhedor */
+            --text-color: #4a4242; /* Marrom acinzentado (mais suave que o preto) */
+            --accent-color: #d8b4b4; /* Rosa antigo / Dusty rose */
+            --card-bg: #ffffff; /* Fundo branco para os posts */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            padding: 2.5rem 5%;
+            text-align: center;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Estrutura Principal --- */
+        main {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        /* --- Grid de Posts --- */
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .post-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #f4e9e9; 
+        }
+
+        .post-content {
+            padding: 1.8rem;
+        }
+
+        .post-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .post-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 3px;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            text-align: center;
+            padding: 3rem 20px;
+            background-color: var(--card-bg);
+            margin-top: 5rem;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #f0eaea;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Blog da <span>Marina</span></a>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Sobre Mim</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">Últimas Publicações</h2>
+        
+        <div class="post-grid">
+            <!-- Post 1 -->
+            <article class="post-card">
+                <!-- Imagem do Unsplash como exemplo -->
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Moda e Tecnologia" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">Fashion Tech</span>
+                    <h3 class="post-title">O Futuro das Marcas: Dados e Tendências</h3>
+                    <p class="post-excerpt">Como as grandes holdings de moda estão utilizando análise de dados e automação para prever as próximas tendências globais.</p>
+                    <a href="#" class="read-more">Ler artigo completo</a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post-card">
+                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=600&q=80" alt="Design de Interface" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">UX / UI</span>
+                    <h3 class="post-title">Acessibilidade Digital na Prática</h3>
+                    <p class="post-excerpt">Princípios fundamentais de design para criar interfaces bonitas, funcionais e que incluam todos os tipos de usuários na web.</p>
+                    <a href="#" class="read-more">Ler artigo completo</a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Código e Tecnologia" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">Desenvolvimento</span>
+                    <h3 class="post-title">Meus Primeiros Passos com Swift</h3>
+                    <p class="post-excerpt">Um resumo sobre lógica de programação, variáveis e como começar a criar seus próprios aplicativos focados no ecossistema mobile.</p>
+                    <a href="#" class="read-more">Ler artigo completo</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Blog da Marina. Desenvolvido com carinho.</p>
+    </footer>
+
+</body>
+</html>
