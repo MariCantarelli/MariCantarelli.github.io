@@ -111,6 +111,51 @@
             color: #666;
         }
 
+        .post-excerpt + .post-excerpt {
+            margin-top: 1rem;
+        }
+
+        /* Deixa o vídeo do YouTube responsivo */
+        .post-content iframe {
+            max-width: 100%;
+            margin-top: 1.5rem;
+            border-radius: 12px;
+        }
+
+        /* ===== Blog 5: demonstração dos filtros ===== */
+        .filter-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .filter-demo figure {
+            text-align: center;
+        }
+
+        /* "Foto" feita só com CSS: céu, sol e chão */
+        .fake-photo {
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            background:
+                radial-gradient(circle at 70% 35%, #ffd76a 0 12%, transparent 13%),
+                linear-gradient(to bottom, #6fb6e8 0%, #f5b38a 60%, #3f7d4e 60%, #2d5e39 100%);
+        }
+
+        .filter-demo figcaption {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .f-original   { filter: none; }
+        .f-pb         { filter: grayscale(100%); }
+        .f-vintage    { filter: sepia(60%) contrast(85%) brightness(110%); }
+        .f-vibrante   { filter: saturate(170%) contrast(120%); }
+        .f-blur       { filter: blur(3px); }
+        .f-negativo   { filter: invert(100%); }
+
         footer {
             text-align: center;
             padding: 3rem 20px;
@@ -154,7 +199,7 @@
                 </div>
             </article>
 
-            <!-- Blog 3 -->>
+            <!-- Blog 3 -->
             <article class="post-card">
                 <div class="post-content">
                     <span class="post-category">Blog 3</span>
@@ -164,7 +209,7 @@
                 </div>
             </article>
 
-            <!-- Blog 4 -->>
+            <!-- Blog 4 -->
             <article class="post-card">
                 <div class="post-content">
                     <span class="post-category">Blog 4</span>
@@ -181,6 +226,55 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
                     </iframe>
+                </div>
+            </article>
+
+            <!-- Blog 5 -->
+            <article class="post-card">
+                <div class="post-content">
+                    <span class="post-category">Blog 5</span>
+                    <h3 class="post-title">O que acontece quando eu aplico um filtro no Instagram</h3>
+                    <p class="post-excerpt">
+                    Todo mundo já passou uns bons minutos escolhendo o filtro certo antes de postar uma foto. Depois das últimas aulas, percebi que por trás daquele carrossel de opções não existe mágica nenhuma: existe matemática sendo aplicada em cada pixel da imagem. Como vimos no post sobre RGB, uma foto nada mais é do que uma grade de pixels, e cada um guarda números que representam a intensidade de vermelho, verde e azul. Um filtro, no fundo, é só uma regra que pega esses números e devolve outros.
+                    </p>
+                    <p class="post-excerpt">
+                    A maior parte dos filtros usa o que chamamos de transformações de intensidade, em que cada pixel é alterado sozinho, sem olhar para os vizinhos. Aumentar o brilho é somar um valor a todos os pixels; aumentar o contraste é "esticar" os valores para longe do meio, deixando o escuro mais escuro e o claro mais claro. O preto e branco combina os três canais em um único valor de luminosidade, e o negativo simplesmente inverte tudo (255 menos o valor original). Já aquele clima quente e nostálgico dos filtros vintage vem de mexer em cada canal separadamente: puxar um pouco o vermelho e o amarelo para cima, reduzir o azul e "lavar" os pretos para que nunca fiquem totalmente escuros, imitando o desbotamento das fotos antigas.
+                    </p>
+                    <p class="post-excerpt">
+                    Outros efeitos precisam olhar para a vizinhança do pixel, e aí entram os filtros espaciais. O desfoque, por exemplo, troca cada pixel pela média dos pixels ao redor, suavizando detalhes e ruídos. A ferramenta de nitidez faz o caminho contrário: realça as diferenças bruscas entre vizinhos, que é exatamente onde ficam as bordas dos objetos. Isso é feito passando uma pequena matriz (chamada de máscara ou kernel) por toda a imagem, uma operação conhecida como convolução. E a famosa vinheta, que escurece os cantos da foto, é só um ajuste de brilho que depende da distância de cada pixel até o centro.
+                    </p>
+
+                    <!-- Demonstração: os mesmos filtros aplicados com CSS -->
+                    <div class="filter-demo">
+                        <figure>
+                            <div class="fake-photo f-original"></div>
+                            <figcaption>Original</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="fake-photo f-pb"></div>
+                            <figcaption>Preto e branco</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="fake-photo f-vintage"></div>
+                            <figcaption>Vintage</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="fake-photo f-vibrante"></div>
+                            <figcaption>Mais contraste e saturação</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="fake-photo f-blur"></div>
+                            <figcaption>Desfoque</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="fake-photo f-negativo"></div>
+                            <figcaption>Negativo</figcaption>
+                        </figure>
+                    </div>
+
+                    <p class="post-excerpt">
+                    Curiosamente, os quadradinhos acima usam os mesmos princípios: o próprio navegador aplica essas transformações nos pixels através da propriedade filter do CSS. Foi legal perceber que aquilo que parecia só um recurso estético do aplicativo é, na verdade, um resumo de vários conteúdos da matéria. Da próxima vez que eu escolher um filtro, vou saber que estou só escolhendo qual conta vai ser feita em cima dos meus pixels.
+                    </p>
                 </div>
             </article>
         </div> <!-- Fecha a caixa principal do post-grid -->
