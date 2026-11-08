@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog da Marina</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
-            --bg-color: #fdfbf7; 
-            --text-color: #4a4242; 
-            --accent-color: #d8b4b4; 
-            --card-bg: #ffffff; 
+            --bg-color: #fdfbf7;
+            --text-color: #4a4242;
+            --accent-color: #d8b4b4;
+            --card-bg: #ffffff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -53,7 +57,7 @@
         }
 
         main {
-            max-width: 800px; 
+            max-width: 800px;
             margin: 4rem auto;
             padding: 0 20px;
         }
@@ -78,6 +82,7 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            scroll-margin-top: 2rem;
         }
 
         .post-card:hover {
@@ -86,7 +91,7 @@
         }
 
         .post-content {
-            padding: 2.5rem; 
+            padding: 2.5rem;
         }
 
         .post-category {
@@ -156,6 +161,98 @@
         .f-blur       { filter: blur(3px); }
         .f-negativo   { filter: invert(100%); }
 
+        /* ===== Blog 8: post de encerramento ===== */
+        .post-card.final-post {
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .post-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            margin: 2rem 0 1rem;
+            color: var(--text-color);
+        }
+
+        /* Linha do tempo do semestre */
+        .recap-list {
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+            border-left: 2px solid #f0eaea;
+            padding-left: 1.5rem;
+        }
+
+        .recap-list li {
+            position: relative;
+            margin-bottom: 1.1rem;
+            font-size: 0.97rem;
+            color: #666;
+        }
+
+        .recap-list li::before {
+            content: "";
+            position: absolute;
+            left: calc(-1.5rem - 6px);
+            top: 0.45rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .recap-list a {
+            color: var(--text-color);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+
+        .recap-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Os três "fios" que ligaram a matéria */
+        .threads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .thread {
+            background: var(--bg-color);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border-top: 4px solid;
+        }
+
+        .thread h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .thread p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .thread.r { border-color: #e88b8b; }
+        .thread.g { border-color: #8bc79a; }
+        .thread.b { border-color: #8bb3e8; }
+
+        .closing-quote {
+            margin: 2rem 0 0;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            border-radius: 12px;
+        }
+
         footer {
             text-align: center;
             padding: 3rem 20px;
@@ -175,22 +272,22 @@
 
     <main>
         <h2 class="section-title">Resumo das Aulas</h2>
-        
+
         <!-- Abre a caixa principal que vai segurar TODAS as aulas -->
         <div class="post-grid">
-            
+
             <!-- Blog 1 -->
-            <article class="post-card">
+            <article class="post-card" id="blog1">
                 <div class="post-content">
                     <span class="post-category">Blog 1</span>
                     <h3 class="post-title">O que eu achava que era Computação Visual e o que nos vamos realmente ver em aula </h3>
-                    <p class="post-excerpt">Eu acreditei que Computação Visual seria uma matéria onde eu veria o básico do OpenGL, interfaces e a parte mais gráfica de games. O que realmente vamos ver em aula sera pelo o que eu entendi sera uma mistura de diversas áreas voltadas a visuais. Veremos sobre programação gráfica, visão computacional e processamento de imagens com filtros. 
+                    <p class="post-excerpt">Eu acreditei que Computação Visual seria uma matéria onde eu veria o básico do OpenGL, interfaces e a parte mais gráfica de games. O que realmente vamos ver em aula sera pelo o que eu entendi sera uma mistura de diversas áreas voltadas a visuais. Veremos sobre programação gráfica, visão computacional e processamento de imagens com filtros.
                     </p>
                 </div>
             </article>
 
             <!-- Blog 2 -->
-            <article class="post-card">
+            <article class="post-card" id="blog2">
                 <div class="post-content">
                     <span class="post-category">Blog 2</span>
                     <h3 class="post-title">RGB e a imagem da televisão</h3>
@@ -200,7 +297,7 @@
             </article>
 
             <!-- Blog 3 -->
-            <article class="post-card">
+            <article class="post-card" id="blog3">
                 <div class="post-content">
                     <span class="post-category">Blog 3</span>
                     <h3 class="post-title">Colorometria pessoal</h3>
@@ -210,27 +307,27 @@
             </article>
 
             <!-- Blog 4 -->
-            <article class="post-card">
+            <article class="post-card" id="blog4">
                 <div class="post-content">
                     <span class="post-category">Blog 4</span>
                     <h3 class="post-title"> O Technicolor</h3>
                     <p class="post-excerpt">
                     Recentemente, fui ver La La Land no cinema e me dei conta de como sinto falta de filmes com cores vibrantes. Hoje em dia, sinto que a maioria das produções recentes adota uma paleta muito escura e acinzentada. Isso me fez lembrar do technicolor, uma técnica clássica que não é mais usada na indústria. Diferente de hoje, a cor era aplicada fisicamente às películas. O famoso processo de três tiras funcionava quase como uma impressora litográfica: uma câmera gigante gravava a cena simultaneamente em três rolos de filme preto e branco (captando as luzes vermelha, verde e azul). Em seguida, esses rolos viravam "matrizes" em relevo que eram mergulhadas em corantes de altíssima saturação (ciano, magenta e amarelo) para, literalmente, carimbar a cor de forma mecânica em uma fita transparente. Hoje, esses materiais nem são mais fabricados. O processo era caríssimo, as câmeras eram enormes e os atores precisavam atuar sob luzes tão fortes e quentes que muitos chegavam a passar mal. Mesmo assim, o technicolor entregava um visual impactante e que não desbotava com o tempo, ao contrário das películas modernas. É a magia dessa técnica extinta que nos deu as cores intensas dos sapatinhos de rubi em O Mágico de Oz e o sangue vermelho vivo no clássico de terror Suspiria.
                     </p>
-                    <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/9cl_U4m9XxM" 
-                    title="O auge e a queda da Technicolor" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/9cl_U4m9XxM"
+                    title="O auge e a queda da Technicolor"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                     </iframe>
                 </div>
             </article>
 
             <!-- Blog 5 -->
-            <article class="post-card">
+            <article class="post-card" id="blog5">
                 <div class="post-content">
                     <span class="post-category">Blog 5</span>
                     <h3 class="post-title">O que acontece quando eu aplico um filtro no Instagram</h3>
@@ -278,8 +375,8 @@
                 </div>
             </article>
 
-    <!-- Blog 6 -->
-            <article class="post-card">
+            <!-- Blog 6 -->
+            <article class="post-card" id="blog6">
                 <div class="post-content">
                     <span class="post-category">Blog 6</span>
                     <h3 class="post-title">Teoria das cores de Monet</h3>
@@ -289,8 +386,8 @@
                 </div>
             </article>
 
-        <!-- Blog 7 -->
-            <article class="post-card">
+            <!-- Blog 7 -->
+            <article class="post-card" id="blog7">
                 <div class="post-content">
                     <span class="post-category">Blog 7</span>
                     <h3 class="post-title">O pixel nasceu no século XIX: Pontilhismo e a mistura óptica</h3>
@@ -301,9 +398,79 @@
                         Sem saber, eles estavam criando o conceito analógico do pixel. Cada ponto de tinta funcionava exatamente como um subpixel RGB de um monitor moderno. De perto, a tela é uma malha de pontos isolados; à distância, o sistema visual humano processa esses estímulos e realiza a síntese aditiva, formando imagens ricas e contínuas. A computação visual não inventou a digitalização da imagem — ela apenas automatizou o que os artistas já faziam na tela.
                     </p>
                 </div>
-            </article>    
-            
-            </div> <!-- Fecha a caixa principal do post-grid -->
+            </article>
+
+            <!-- Blog 8: encerramento da disciplina -->
+            <article class="post-card final-post" id="blog8">
+                <div class="post-content">
+                    <span class="post-category">Blog 8 · Encerramento</span>
+                    <h3 class="post-title">Fechando o semestre: o que eu aprendi a enxergar</h3>
+
+                    <p class="post-excerpt">
+                    Chegou o último post, e nada mais justo do que voltar ao começo. No <a href="#blog1">Blog 1</a>, eu escrevi que imaginava Computação Visual como uma matéria de OpenGL, interfaces e gráficos de games. Relendo aquele texto hoje, percebo que eu não estava errada sobre os temas, mas estava errada sobre o tamanho deles. A disciplina não foi sobre uma ferramenta específica: foi sobre aprender que uma imagem é, ao mesmo tempo, física, percepção e matemática.
+                    </p>
+
+                    <h4 class="post-subtitle">O caminho que o blog fez</h4>
+                    <p class="post-excerpt">
+                    Olhando os posts em sequência, dá para ver que eles foram conversando entre si sem que eu planejasse isso no início:
+                    </p>
+
+                    <ul class="recap-list">
+                        <li><a href="#blog1">Blog 1</a> — a expectativa versus a realidade da matéria.</li>
+                        <li><a href="#blog2">Blog 2</a> — o pixel e a síntese aditiva: a imagem como números de vermelho, verde e azul.</li>
+                        <li><a href="#blog3">Blog 3</a> — espaços de cor como HSV e CIELAB, e como a cor vira dado para análise.</li>
+                        <li><a href="#blog4">Blog 4</a> — o Technicolor e a separação da cena em canais, com a cor "impressa" por síntese subtrativa.</li>
+                        <li><a href="#blog5">Blog 5</a> — filtros de imagem: transformações de intensidade, convolução e kernels.</li>
+                        <li><a href="#blog6">Blog 6</a> e <a href="#blog7">Blog 7</a> — Monet, Seurat e a mistura óptica: o cérebro como parte do sistema visual.</li>
+                    </ul>
+
+                    <p class="post-excerpt">
+                    Comecei falando de televisão e terminei falando de pintura do século XIX, mas a ideia era sempre a mesma. A tela da TV, a película do Technicolor, o filtro do Instagram e um quadro pontilhista resolvem o mesmo problema: como representar luz e cor de um jeito que o nosso olho aceite como real.
+                    </p>
+
+                    <h4 class="post-subtitle">Os três fios que ligaram tudo</h4>
+                    <div class="threads">
+                        <div class="thread r">
+                            <h4>A imagem é dado</h4>
+                            <p>Uma foto é uma matriz de valores. Entender isso tirou a "mágica" dos filtros e colocou a lógica no lugar.</p>
+                        </div>
+                        <div class="thread g">
+                            <h4>A cor é física e percepção</h4>
+                            <p>Síntese aditiva, subtrativa e espaços de cor mostram que a cor depende da luz e de quem está olhando.</p>
+                        </div>
+                        <div class="thread b">
+                            <h4>A técnica tem história</h4>
+                            <p>Antes dos algoritmos, pintores e o cinema já resolviam os mesmos problemas, só que com tinta e película.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="post-subtitle">O que eu levo da disciplina</h4>
+                    <p class="post-excerpt">
+                    A maior mudança foi no meu jeito de olhar as coisas do dia a dia. Hoje, quando escolho um filtro, penso em qual conta está sendo feita sobre os pixels. Quando assisto a um filme muito acinzentado, penso em correção de cor e em como a escolha da paleta é uma decisão técnica e artística ao mesmo tempo. E quando vejo uma tela de perto, lembro que aqueles subpixels são parentes diretos dos pontinhos de Seurat.
+                    </p>
+                    <p class="post-excerpt">
+                    Também gostei de perceber o quanto a Computação Visual se conecta com áreas que eu não esperava: moda e colorimetria, cinema, história da arte. Alguns dos meus posts favoritos foram justamente os mais pessoais, porque partiram de algo que eu já gostava (um filme no cinema, um pintor) e acabaram me levando de volta para o conteúdo da aula.
+                    </p>
+
+                    <h4 class="post-subtitle">Sobre fazer o blog</h4>
+                    <p class="post-excerpt">
+                    Escrever um post por semana me obrigou a explicar o conteúdo com as minhas palavras, e explicar é uma ótima forma de descobrir o que você ainda não entendeu. Usei IA generativa como apoio para organizar ideias, revisar textos e tirar dúvidas, mas a escolha dos temas e das conexões entre eles foi o que tornou o blog meu. Montar o site em HTML e CSS e publicar no GitHub Pages também acabou virando parte do aprendizado: no Blog 5, por exemplo, o próprio navegador aplicou os filtros que eu estava explicando, o que transformou a página em uma pequena demonstração do conteúdo.
+                    </p>
+                    <p class="post-excerpt">
+                    Termino o semestre com mais curiosidade do que quando comecei. Ainda quero entender melhor a parte de visão computacional, como as máquinas reconhecem objetos e rostos, e talvez me aventurar no OpenGL que eu imaginava lá no primeiro post. A diferença é que agora eu sei que, por trás de qualquer imagem, existe uma grade de números esperando para ser interpretada.
+                    </p>
+
+                    <p class="closing-quote">
+                    "Eu achava que ia aprender a fazer imagens. No fim, aprendi a enxergá-las."
+                    </p>
+
+                    <p class="post-excerpt" style="margin-top: 1.5rem;">
+                    Obrigada a quem acompanhou o blog até aqui! 💗
+                    </p>
+                </div>
+            </article>
+
+        </div> <!-- Fecha a caixa principal do post-grid -->
 
     </main>
 
